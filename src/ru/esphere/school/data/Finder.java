@@ -19,7 +19,7 @@ public class Finder {
         return groups.stream()//создаем стрим из объектов MembersGroup
                 .flatMap(t->t.getMembers().stream()) //создаем стрим из объектов Member
                 .filter(m->m.getAge()>targetAge)//фильтруем по возрасту больше targetAge
-                .map(m->m.getName())//собираем имена отфильтрованных объектов
+                .map(Member::getName)//собираем имена отфильтрованных объектов
                 .collect(Collectors.toSet());//преобразуем  в  Set
     }
 
